@@ -39,6 +39,7 @@ def print_results(results):
     status = 'Success' if int(results.get('status', 1)) == 0 else 'Failure'
     grade  = score / total if (score > 0 and total > 0) else 0
 
+    print('  ' + '-'*20)
     print(f'{"Score":>8} {score:5.2f} / {total:5.2f}')
     print(f'{"Grade":>8} {grade:5.2f} / {1.0:5.2f}')
     print(f'{"Status":>8} {status}')

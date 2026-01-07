@@ -1,0 +1,17 @@
+*~
+*.o
+*.pyc
+*.swp
+*.exe
+*.so
+*.a
+*.tar.gz
+__pycache__
+homework01/archive
+homework01/bash
+homework02/*.lockbox
+homework06/homework06
+homework07/homework07
+homework08/homework08
+homework09/homework09
+homework10/homework10

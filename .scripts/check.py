@@ -27,8 +27,8 @@ def print_results(results):
             continue
 
         try:
-            print(f'{key.title():>8} {value:.2f}')
-        except ValueError:
+            print(f'{key.title():>8} {value:5.2f} / {results['points'][key]:5.2f}')
+        except (KeyError, ValueError):
             if key in ('stdout', 'diff'):
                 print(f'{key.title():>8}\n{value}')
             else:
@@ -39,8 +39,8 @@ def print_results(results):
     status = 'Success' if int(results.get('status', 1)) == 0 else 'Failure'
     grade  = score / total if (score > 0 and total > 0) else 0
 
-    print(f'{"Score":>8} {score:.2f} / {total:.2f}')
-    print(f'{"Grade":>8} {grade:.2f} / {1.0:.2f}')
+    print(f'{"Score":>8} {score:5.2f} / {total:5.2f}')
+    print(f'{"Grade":>8} {grade:5.2f} / {1.0:5.2f}')
     print(f'{"Status":>8} {status}')
 
 # Submit Functions

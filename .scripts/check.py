@@ -48,14 +48,14 @@ def submit_quiz(assignment, path):
     answers = None
 
     for mod_load, ext in ((json.load, 'json'), (yaml.safe_load, 'yaml')):
-        with open(os.path.join(path, 'answers.' + ext)) as stream:
-            try:
+        try:
+            with open(os.path.join(path, 'answers.' + ext)) as stream:
                 answers = mod_load(stream)
-            except IOError:
-                pass
-            except Exception as e:
-                print(f'Unable to parse answers.{ext}: {e}')
-                return 1
+        except IOError:
+            pass
+        except Exception as e:
+            print(f'Unable to parse answers.{ext}: {e}')
+            return 1
 
     if answers is None:
         print('No quiz found (answers.{json,yaml})')

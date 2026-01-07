@@ -37,9 +37,10 @@ def print_results(results):
     score  = results.get('score', 0)
     total  = results.get('value', 0)
     status = 'Success' if int(results.get('status', 1)) == 0 else 'Failure'
+    grade  = score / total if (score > 0 and total > 0) else 0
 
     print(f'{"Score":>8} {score:.2f} / {total:.2f}')
-    print(f'{"Grade":>8} {score/total:.2f} / {1.0:.2f}')
+    print(f'{"Grade":>8} {grade:.2f} / {1.0:.2f}')
     print(f'{"Status":>8} {status}')
 
 # Submit Functions
